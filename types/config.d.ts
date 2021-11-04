@@ -68,6 +68,12 @@ declare module 'config' {
       tokenBytesLength: number;
       tokenTTL: number;
     };
+
+    postShortIds: {
+      initialLength: number;
+      stopWords: string[];
+      maxAttempts: number;
+    };
   };
 
   const c: Config;
