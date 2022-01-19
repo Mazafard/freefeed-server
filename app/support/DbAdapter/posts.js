@@ -71,6 +71,23 @@ const postsTrait = (superClass) =>
       return initPostObject(attrs, params);
     }
 
+    async getPostLongId(shortId) {
+      if (!validator.isHexadecimal(shortId)) {
+        return null;
+      }
+
+      const res = await this.database('post_short_ids')
+        .select('long_id')
+        .where('short_id', shortId)
+        .first();
+
+      if (!res) {
+        return null;
+      }
+
+      return res.long_id;
+    }
+
     async getPostsByIds(ids, params) {
       const responses = await this.database('posts')
         .orderBy('bumped_at', 'desc')

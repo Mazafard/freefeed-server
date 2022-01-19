@@ -110,6 +110,7 @@ export class DbAdapter {
 
   // Posts
   getPostById(id: UUID): Promise<Post | null>;
+  getPostLongId(shortId: string): UUID | null;
   getAdminsOfPostGroups(postId: UUID): Promise<User[]>;
   getPostsByIds(ids: UUID[]): Promise<Post[]>;
   getPostsByIntIds(ids: number[]): Promise<Post[]>;
