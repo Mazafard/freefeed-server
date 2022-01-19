@@ -208,6 +208,7 @@ function serializePostData(post) {
   return {
     ...pick(post, [
       'id',
+      'shortId',
       'body',
       'commentsDisabled',
       'createdAt',
